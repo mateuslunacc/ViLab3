@@ -25,14 +25,14 @@ var x = d3.scaleBand()
 var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
-var z = d3.scaleOrdinal(["#1BC0A2", "#C01B5A"]);
+var z = d3.scaleOrdinal(["#3FE4A5", "#C01B5A"]);
 
 var stack = d3.stack();
 
 d3.csv("frequencia.csv", type, function(error, data) {
   if (error) throw error;
 
-  data.sort(function(a, b) { return b.total - a.total; });
+  //data.sort(function(a, b) { return b.total - a.total; });
 
   x.domain(data.map(function(d) { return d.letra; }));
   y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
